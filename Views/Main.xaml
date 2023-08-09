@@ -1,0 +1,23 @@
+﻿<Window x:Class="MvvmDemo.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Name="mainWindow">
+    <Grid>
+        <TextBox Name="FilterTextBox" TextChanged="FilterTextBox_TextChanged" HorizontalAlignment="Left" Margin="19,25,0,0" TextWrapping="Wrap" Text="" Width="301" Height="18" VerticalAlignment="Top"/>
+        <Button Content="Add User" Command="{Binding ShowWindowCommand}" CommandParameter="{x:Reference Name=mainWindow}" Margin="0,23,22,0" VerticalAlignment="Top" RenderTransformOrigin="2.346,-0.527" HorizontalAlignment="Right" Width="138"/>
+        <ListView Name="UserList" ItemsSource="{Binding Users}" Margin="19,59,22,26" Padding="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>
